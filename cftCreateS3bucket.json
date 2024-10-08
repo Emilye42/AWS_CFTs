@@ -1,0 +1,38 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Example CloudFormation template to create an S3 bucket.",
+    
+        "Parameters": {
+          "BucketAccessControl": {
+            "Type": "String",
+            "Description": "The access control for the S3 bucket.",
+            "Default": "Private",
+            "AllowedValues": [
+              "Private",
+              "PublicRead",
+              "PublicReadWrite",
+              "AuthenticatedRead",
+              "LogDeliveryWrite",
+              "BucketOwnerRead",
+              "BucketOwnerFullControl"
+            ],
+            "ConstraintDescription": "Must be one of the predefined access control values."
+          }
+        },
+        
+    "Resources": {
+      "MyS3Bucket": {
+        "Type": "AWS::S3::Bucket",
+        "Properties": {
+          "BucketName": "qwertyuiobnmiuytrdpsdfghj"  
+        }
+      }
+    },
+    "Outputs": {
+      "BucketName": {
+        "Description": "Name of the S3 bucket",
+        "Value": { "Ref": "MyS3Bucket" }
+      }
+    }
+  }
+  
